@@ -13,6 +13,7 @@ app.use('/api/payment', paymentRoutes); // Mount the payment route under /api/pa
 
 // Default route
 app.get('/', (req, res) => {
+  console.log(req);
   res.send('API is running'); // Optional: Just to check if the server is running
 });
 

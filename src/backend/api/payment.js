@@ -3,9 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const router = express.Router();
 
-router.use(cors()); // Enable CORS for this route
-
-router.post('/', (req, res) => {
+router.post('/api/payment', (req, res) => {
   const { shippingInfo, cartItems, totalPrice } = req.body;
 
   // Simulate payment processing logic
