@@ -53,7 +53,7 @@ const Checkout = () => {
       const text = await response.text(); // Get response as text
       
       if (response.ok) {
-        const data = JSON.parse(text); // Only parse if the response is OK
+        // const data = JSON.parse(text); // Only parse if the response is OK
         // Redirect to payment success page
         window.location.href = '/payment-success';
       } else {
