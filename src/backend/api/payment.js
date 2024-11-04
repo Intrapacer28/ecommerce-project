@@ -1,9 +1,8 @@
 // backend/api/payment.js
 const express = require('express');
-const cors = require('cors');
 const router = express.Router();
 
-router.post('/api/payment', (req, res) => {
+router.post('/', (req, res) => {
   const { shippingInfo, cartItems, totalPrice } = req.body;
 
   // Simulate payment processing logic
