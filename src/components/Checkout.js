@@ -35,10 +35,26 @@ const Checkout = () => {
   
     // Prepare the data to be sent to the backend
     const paymentData = {
-      shippingInfo,
-      cartItems,
-      totalPrice,
-    };
+      shippingInfo: {
+          name: shippingName, // Assume these are state variables
+          address: shippingAddress,
+          city: shippingCity,
+          state: shippingState,
+          zipCode: shippingZipCode,
+          country: shippingCountry,
+          email: shippingEmail,
+          phone: shippingPhone,
+      },
+      cartItems: [
+          {
+              productId: selectedProduct.id, // Assume this is from selected product
+              quantity: selectedQuantity, // Capture quantity from user input
+              product: selectedProduct // Include product details
+          }
+      ],
+      totalPrice: selectedProduct.price * selectedQuantity // Calculate total based on quantity
+  };
+
   
     try {
       // Call the backend payment API
