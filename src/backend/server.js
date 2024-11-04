@@ -1,41 +1,18 @@
-import Cors from 'cors';
+const express = require('express');
+const bodyParser = require('body-parser');
+const paymentRoutes = require('./backend/payment'); // Adjust path as necessary
 
-// Initialize CORS middleware
-const cors = Cors({
-  methods: ['POST', 'GET', 'HEAD'],
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(bodyParser.json()); // For parsing application/json
+app.use('/api', paymentRoutes); // Mount the payment route under /api
+
+// Default route
+app.get('/', (req, res) => {
+  res.send('API is running'); // Optional: Just to check if the server is running
 });
 
-// Helper method to wait for a middleware to execute before continuing
-const runMiddleware = (req, res, fn) => {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-      return resolve(result);
-    });
-  });
-};
-
-// API route handler
-const handler = async (req, res) => {
-  await runMiddleware(req, res, cors);
-
-  // Only handle POST requests
-  if (req.method === 'POST') {
-    const { shippingInfo, cartItems, totalPrice } = req.body;
-
-    const paymentSuccessful = Math.random() > 0.5; // Simulate payment processing
-
-    if (paymentSuccessful) {
-      return res.status(200).json({ success: true, message: 'Payment processed successfully!' });
-    } else {
-      return res.status(400).json({ success: false, message: 'Payment failed. Please try again.' });
-    }
-  } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
-};
-
-export default handler;
+// Export the app for Vercel
+module.exports = app;
