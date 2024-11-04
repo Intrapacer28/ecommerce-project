@@ -60,7 +60,7 @@ const Checkout = () => {
       } else {
         console.error('Payment processing error:', text); // Log the text response
         // Redirect to payment failure page
-        window.location.href = '/payment-failure';
+        // window.location.href = '/payment-failure';
       }
       
     } 
