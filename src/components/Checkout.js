@@ -71,6 +71,7 @@ const Checkout = () => {
 
   
       const text = await response.text(); // Get response as text
+      console.log(text);
       
       if (response.ok) {
        
