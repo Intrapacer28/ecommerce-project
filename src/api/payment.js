@@ -21,6 +21,7 @@ const runMiddleware = (req, res, fn) => {
 const handler = async (req, res) => {
   await runMiddleware(req, res, cors);
   console.log('Incoming request method:', req.method);
+  console.log('Request body:', req.body); // Log incoming request body
   
   if (req.method === 'POST') {
     console.log('Request body:', req.body); // Log incoming request body
