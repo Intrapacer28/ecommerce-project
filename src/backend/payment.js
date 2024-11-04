@@ -1,14 +1,13 @@
+// api/payment.js
 const express = require('express');
 const cors = require('cors');
 
 const router = express.Router();
-
-// Use CORS
 router.use(cors());
 
 // POST payment route
-router.post('/payment', (req, res) => {
-  console.log('Request Body:', req.body); // Log the request body
+router.post('/', (req, res) => {
+  console.log('Request Body:', req.body);
   const { shippingInfo, cartItems, totalPrice } = req.body;
 
   const paymentSuccessful = Math.random() > 0.5; // Simulate payment processing
