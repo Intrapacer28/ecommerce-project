@@ -15,6 +15,7 @@ const handler = (req, res) => {
       }
     } else {
       res.setHeader('Allow', ['POST']);
+      console.log('Incoming request method:', req.method);
       res.status(405).end(`Method ${req.method} Not Allowed`);
     }
   });
