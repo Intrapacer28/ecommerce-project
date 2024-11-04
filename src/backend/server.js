@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const paymentRoutes = require('./api/payment'); // Adjust path as necessary
+const paymentRoutes = require('../api/payment'); // Adjust path as necessary
 
 const app = express();
 const PORT = process.env.PORT || 5000;
