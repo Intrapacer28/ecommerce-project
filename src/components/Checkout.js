@@ -42,14 +42,15 @@ const Checkout = () => {
   
     try {
       // Call the backend payment API
-      const response = await fetch('/api/payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(paymentData),
-      });
-      
+   // Call the backend payment API
+   const response = await fetch('/api/payment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(paymentData), // Ensure paymentData is defined
+  });
+  
       const text = await response.text(); // Get response as text
       
       if (response.ok) {
