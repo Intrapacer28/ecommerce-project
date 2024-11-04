@@ -49,9 +49,9 @@ const Checkout = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(paymentData),
-    mode: 'no-cors'
+    body: JSON.stringify(paymentData), // Make sure paymentData is defined and correct
   });
+  
   
 
       console.log('Payment Data:', paymentData);
