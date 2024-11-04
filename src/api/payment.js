@@ -19,13 +19,15 @@ const runMiddleware = (req, res, fn) => {
 
 // Main handler function for Vercel
 const handler = async (req, res) => {
-  // Run CORS middleware
   await runMiddleware(req, res, cors);
-
-  // Check for POST method
+  console.log('Incoming request method:', req.method);
+  
   if (req.method === 'POST') {
+    console.log('Request body:', req.body); // Log incoming request body
+
     const { shippingInfo, cartItems, totalPrice } = req.body;
-    const paymentSuccessful = Math.random() > 0.5;
+
+    const paymentSuccessful = Math.random() > 0.5; // Simulate payment processing
 
     if (paymentSuccessful) {
       return res.status(200).json({ success: true, message: 'Payment processed successfully!' });
