@@ -21,11 +21,14 @@ const runMiddleware = (req, res, fn) => {
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors); // Run CORS middleware
 
+  console.log('Incoming request method:', req.method); // Log incoming method
+
   if (req.method === 'POST') {
-    console.log('Request Body:', req.body);
+    console.log('Request Body:', req.body); // Log request body
     const { shippingInfo, cartItems, totalPrice } = req.body;
 
-    const paymentSuccessful = Math.random() > 0.5; // Simulate payment processing
+    // Simulate payment processing
+    const paymentSuccessful = Math.random() > 0.5; 
 
     if (paymentSuccessful) {
       return res.status(200).json({ success: true, message: 'Payment processed successfully!' });
@@ -34,7 +37,7 @@ export default async function handler(req, res) {
     }
   } else {
     res.setHeader('Allow', ['POST']);
-    console.log('Incoming request method:', req.method);
+    console.log('Method not allowed:', req.method); // Log method not allowed
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
