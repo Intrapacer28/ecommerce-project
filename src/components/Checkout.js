@@ -50,6 +50,9 @@ const Checkout = () => {
     },
     body: JSON.stringify(paymentData), // Ensure paymentData is defined
   });
+
+      console.log('Payment Data:', paymentData);
+
   
       const text = await response.text(); // Get response as text
       
