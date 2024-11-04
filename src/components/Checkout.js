@@ -44,7 +44,7 @@ const Checkout = () => {
     try {
 
    // Call the backend payment API
-   const response = await fetch('https://ecommerce-project-plum-nine.vercel.app/api/payment', {
+   const response = await fetch('https://ecommerce-project-fu1p5g3xr-pranavs-projects-06b69d71.vercel.app/api/payment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
