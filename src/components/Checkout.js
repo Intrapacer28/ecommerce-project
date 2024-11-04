@@ -79,15 +79,14 @@ const Checkout = () => {
         window.location.href = '/payment-success';
       } else {
         console.error('Payment processing error:', text); // Log the text response
-        // Redirect to payment failure page
-        // window.location.href = '/payment-failure';
+       
       }
       
     } 
     catch (error) {
       console.error("Payment processing error:", error);
       // In case of an error, redirect to the failure page
-      // window.location.href = '/payment-failure';
+    
     }
   };
   
