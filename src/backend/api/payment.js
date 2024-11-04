@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Middleware to handle CORS
+// CORS Middleware
 router.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-project-plum-nine.vercel.app'); // Replace with your frontend URL
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -14,6 +14,7 @@ router.options('/', (req, res) => {
   res.sendStatus(204);
 });
 
+// Handle POST request
 router.post('/', (req, res) => {
   const { shippingInfo, cartItems, totalPrice } = req.body;
 

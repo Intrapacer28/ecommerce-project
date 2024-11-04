@@ -57,6 +57,10 @@ const Checkout = () => {
       console.log('Payment Data:', paymentData);
       const text = await response.text(); // Get response as text
       console.log(text);
+
+      if (!response.ok) {
+        throw new Error('Payment processing error: ' + response.statusText);
+      }
       
       if (response.ok) {
        
