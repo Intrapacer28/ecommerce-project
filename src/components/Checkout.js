@@ -42,7 +42,7 @@ const Checkout = () => {
   
     try {
       // Call the backend payment API
-      const response = await fetch('https://ecommerce-project-plum-nine.vercel.app/api/payment', {
+      const response = await fetch('/api/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Checkout = () => {
       const text = await response.text(); // Get response as text
       
       if (response.ok) {
-        // const data = JSON.parse(text); // Only parse if the response is OK
+       
         // Redirect to payment success page
         window.location.href = '/payment-success';
       } else {
