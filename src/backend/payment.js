@@ -1,4 +1,4 @@
-import Cors from 'cors';
+const Cors = require('cors');
 
 // Initialize CORS
 const cors = Cors({
@@ -18,7 +18,7 @@ const runMiddleware = (req, res, fn) => {
 };
 
 // Your main function
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   await runMiddleware(req, res, cors); // Run CORS middleware
 
   console.log('Incoming request method:', req.method); // Log incoming method
@@ -40,4 +40,7 @@ export default async function handler(req, res) {
     console.log('Method not allowed:', req.method); // Log method not allowed
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
-}
+};
+
+// Export the handler for use in the server
+module.exports = handler;
