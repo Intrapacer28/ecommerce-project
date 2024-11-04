@@ -43,7 +43,7 @@ const Checkout = () => {
     try {
       // Call the backend payment API
    // Call the backend payment API
-   const response = await fetch('/api/payment', {
+   const response = await fetch('checkout/api/payment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
