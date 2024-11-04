@@ -44,13 +44,15 @@ const Checkout = () => {
     try {
 
    // Call the backend payment API
-   const response = await fetch('/api/payment', {
+   const response = await fetch('https://ecommerce-project-fu1p5g3xr-pranavs-projects-06b69d71.vercel.app/api/payment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(paymentData), // Ensure paymentData is defined
+    body: JSON.stringify(paymentData),
+    mode: 'no-cors'
   });
+  
 
       console.log('Payment Data:', paymentData);
       const text = await response.text(); // Get response as text
